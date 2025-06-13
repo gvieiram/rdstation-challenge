@@ -2,6 +2,25 @@
 
 Este projeto é parte do teste técnico para a vaga de desenvolvedor front-end na RD Station. O objetivo principal é implementar a lógica de recomendação de produtos RD Station em uma aplicação web existente.
 
+## Implementação Realizada
+
+### Sistema de Recomendação
+- Implementação do algoritmo de pontuação para matching de produtos
+- Suporte para recomendações do tipo SingleProduct e MultipleProducts
+- Sistema de validação para entradas vazias e tipos de recomendação inválidas
+- Ordenação por pontuação e index
+
+### Componentes
+- Implementação do fluxo de submissão do formulário
+- Integração do sistema de atualização de recomendações
+- Melhoria no gerenciamento de estado com hooks customizados
+
+### Testes
+- Cobertura de testes completas para todos os componentes
+- Testes unitários para o serviço de recomendação
+- Testes de integração para submit do formulário
+- Cobertura de testes para casos de borda e cenários de erro
+
 ## Missão
 
 Sua missão é desenvolver a funcionalidade central de recomendação de produtos dentro de uma aplicação React.js pré-existente. Você deverá implementar a lógica que permite aos usuários selecionar suas preferências e funcionalidades desejadas, e então receber recomendações de produtos correspondentes.
