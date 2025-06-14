@@ -1,21 +1,45 @@
 # Teste Técnico - Recomendador de Produtos RD Station
 
-Este projeto é parte do teste técnico para a vaga de desenvolvedor front-end na RD Station. O objetivo principal é implementar a lógica de recomendação de produtos RD Station em uma aplicação web existente.
+> Este projeto é parte do teste técnico para a vaga de desenvolvedor front-end na RD Station. O objetivo principal é implementar a lógica de recomendação de produtos RD Station em uma aplicação web existente.
+
+## Modificações de Redesign
+
+Durante o desenvolvimento, foram realizadas diversas melhorias visuais e de experiência do usuário na aplicação, incluindo:
+
+- **Novo layout para o formulário:** O formulário de seleção de preferências, funcionalidades e tipo de recomendação foi redesenhado para maior clareza, responsividade e facilidade de uso.
+- **Componentização visual:** Criação e padronização de componentes reutilizáveis como `Button`, `ProductCard`, `RecommendationList` e `Onboarding`, garantindo consistência visual em toda a aplicação.
+- **Feedback visual:** Inclusão de transições suaves, estados de hover, disabled e feedback visual em botões e links para melhor experiência do usuário.
+- **Onboarding animado:** Implementação de um fluxo de onboarding com animações para guiar o usuário no primeiro acesso.
+- **Cards de produto aprimorados:** Os cards de recomendação exibem informações de forma mais clara, com destaque para preferências, funcionalidades e categoria do produto.
+- **Responsividade:** Garantia de que todos os componentes funcionam bem em diferentes tamanhos de tela.
+- **Navegação com React Router:** Implementação de rotas para exibir detalhes de cada produto recomendado, permitindo ao usuário acessar uma página dedicada com informações completas do produto.
+
+## Onboarding (Tour Inicial)
+
+- O onboarding é um fluxo de passos que apresenta a aplicação ao usuário na primeira visita.
+- O controle de exibição do onboarding é feito via `localStorage`, garantindo que o tour só apareça uma vez por usuário/dispositivo.
+- O usuário pode avançar e voltar entre os passos, e ao finalizar o onboarding, ele não será mais exibido nas próximas visitas.
+- O onboarding utiliza animações para uma experiência mais fluida e amigável.
+
+Essas melhorias visuais e de UX tornam a aplicação mais agradável, intuitiva e alinhada com padrões modernos de design.
 
 ## Implementação Realizada
 
 ### Sistema de Recomendação
+
 - Implementação do algoritmo de pontuação para matching de produtos
 - Suporte para recomendações do tipo SingleProduct e MultipleProducts
 - Sistema de validação para entradas vazias e tipos de recomendação inválidas
 - Ordenação por pontuação e index
 
 ### Componentes
+
 - Implementação do fluxo de submissão do formulário
 - Integração do sistema de atualização de recomendações
 - Melhoria no gerenciamento de estado com hooks customizados
 
 ### Testes
+
 - Cobertura de testes completas para todos os componentes
 - Testes unitários para o serviço de recomendação
 - Testes de integração para submit do formulário
@@ -90,7 +114,7 @@ Para completar este teste, você deve concentrar-se principalmente em três arqu
 
 1. Clone o repositório: `git clone <URL_DO_REPOSITORIO>`
 2. Instale as dependências: `yarn install`
-3. Para instalar o projeto, execute o script `./install.sh` 
+3. Para instalar o projeto, execute o script `./install.sh`
 4. Inicie a aplicação: `yarn start`
 
 ### Scripts Disponíveis
