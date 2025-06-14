@@ -1,49 +1,60 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
+import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import RecommendationList from './RecommendationList';
 
 describe('RecommendationList Component', () => {
-  test('renders empty state message when no recommendations', () => {
-    render(<RecommendationList recommendations={[]} />);
-    
-    expect(screen.getByText('Nenhuma recomendação encontrada.')).toBeInTheDocument();
+  function renderWithRouter(ui) {
+    return render(<MemoryRouter>{ui}</MemoryRouter>);
+  }
+
+  test('should render empty state message when no recommendations', () => {
+    renderWithRouter(<RecommendationList recommendations={[]} />);
+
+    expect(
+      screen.getByText(
+        'Nenhuma recomendação encontrada. Preencha o formulário para ver as recomendações.'
+      )
+    ).toBeInTheDocument();
   });
 
-  test('renders list of recommendations', () => {
+  test('should render list of recommendations', () => {
     const recommendations = [
-      { id: 1, name: 'RD Station CRM' },
-      { id: 2, name: 'RD Station Marketing' }
+      { id: 1, name: 'RD Station CRM', preferences: [], features: [] },
+      { id: 2, name: 'RD Station Marketing', preferences: [], features: [] },
     ];
 
-    render(<RecommendationList recommendations={recommendations} />);
-    
-    expect(screen.getByText('Lista de Recomendações:')).toBeInTheDocument();
+    renderWithRouter(<RecommendationList recommendations={recommendations} />);
+
+    expect(screen.getByText('Recomendações')).toBeInTheDocument();
     expect(screen.getByText('RD Station CRM')).toBeInTheDocument();
     expect(screen.getByText('RD Station Marketing')).toBeInTheDocument();
   });
 
-  test('renders single recommendation', () => {
+  test('should render single recommendation', () => {
     const recommendations = [
-      { id: 1, name: 'RD Station CRM' }
+      { id: 1, name: 'RD Station CRM', preferences: [], features: [] },
     ];
 
-    render(<RecommendationList recommendations={recommendations} />);
-    
+    renderWithRouter(<RecommendationList recommendations={recommendations} />);
+
     expect(screen.getByText('RD Station CRM')).toBeInTheDocument();
   });
 
-  test('renders recommendations with additional product information', () => {
+  test('should render recommendations with additional product information', () => {
     const recommendations = [
-      { 
-        id: 1, 
+      {
+        id: 1,
         name: 'RD Station CRM',
         category: 'Vendas',
-        score: 3
-      }
+        score: 3,
+        preferences: [],
+        features: [],
+      },
     ];
 
-    render(<RecommendationList recommendations={recommendations} />);
-    
+    renderWithRouter(<RecommendationList recommendations={recommendations} />);
+
     expect(screen.getByText('RD Station CRM')).toBeInTheDocument();
   });
-}); 
+});

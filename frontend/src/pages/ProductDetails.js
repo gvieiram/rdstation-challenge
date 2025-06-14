@@ -12,7 +12,8 @@ function ProductDetails() {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    const productSelected = products.find((p) => p.id === id);
+    const productSelected = products.find((p) => Number(p.id) === Number(id));
+
     if (productSelected) {
       setProduct(productSelected);
     }

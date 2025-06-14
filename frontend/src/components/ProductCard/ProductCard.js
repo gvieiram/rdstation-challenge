@@ -34,7 +34,7 @@ function ProductCard({ product }) {
               </span>
             ))}
             {product.preferences.length > 3 && (
-              <span className="text-xs text-gray-500">
+              <span className="flex items-center text-xs text-gray-500">
                 +{product.preferences.length - 3}
               </span>
             )}
@@ -55,7 +55,7 @@ function ProductCard({ product }) {
               </span>
             ))}
             {product.features.length > 3 && (
-              <span className="text-xs text-gray-500">
+              <span className="flex items-center text-xs text-gray-500">
                 +{product.features.length - 3}
               </span>
             )}
