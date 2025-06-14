@@ -15,20 +15,18 @@ const useProducts = () => {
 
         setProducts(products);
 
+        // Changed to sort by alphabetically to maintain a better UX
         products.forEach((product) => {
-          const productPreferences = product.preferences
-            .sort(() => Math.random() - 0.5)
-            .slice(0, 2);
-          allPreferences.push(...productPreferences);
-
-          const productFeatures = product.features
-            .sort(() => Math.random() - 0.5)
-            .slice(0, 2);
-          allFeatures.push(...productFeatures);
+          allPreferences.push(...product.preferences);
+          allFeatures.push(...product.features);
         });
 
-        setPreferences(allPreferences);
-        setFeatures(allFeatures);
+        setPreferences(
+          [...new Set(allPreferences)].sort((a, b) => a.localeCompare(b))
+        );
+        setFeatures(
+          [...new Set(allFeatures)].sort((a, b) => a.localeCompare(b))
+        );
       } catch (error) {
         console.error('Erro ao obter os produtos:', error);
       }
